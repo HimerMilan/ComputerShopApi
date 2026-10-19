@@ -60,6 +60,7 @@ namespace ComputerShopApi.Controllers
         public object UpdateOsystem([FromQuery]Guid id, [FromBody]UpdateOsystemDto updateOsystemDto)
         {
             var osystem = _context.Osystem.FirstOrDefault(os => os.Id == id);
+            Exception e = new();
 
             if (osystem != null)
             {
@@ -105,7 +106,5 @@ namespace ComputerShopApi.Controllers
                 return StatusCode(200, new { message = "Hiba a lekérdezésben", result = e.Message });
             }
         }
-    }
-                
     }
 }
